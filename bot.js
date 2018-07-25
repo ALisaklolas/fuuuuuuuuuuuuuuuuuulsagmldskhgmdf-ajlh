@@ -54,7 +54,7 @@ let role = message.content.split(" ").slice(2).join(" ");
 let mySupport = message.guild.roles.find('name',role);
 let acRoom = client.channels.get('471067470212497409');
 if(message.content.startsWith(prefix + "قبول")) {
-  if(message.guild.id !== '410421617869455370','396958215377780747') return;
+if (!developers.includes(message.author.id)) return;  
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply('منشن شخص');
   if(!role) return message.reply('ادخل اسم رتبة');
@@ -73,7 +73,7 @@ client.on('message',async message => {
 let mention = message.mentions.members.first();
 let acRoom = client.channels.get('471067470212497409');
 if(message.content.startsWith(prefix + "رفض")) {
-if(message.guild.id !== '410421617869455370','396958215377780747') return;
+if (!developers.includes(message.author.id)) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
 if(!mention) return message.reply("منشن شخص");
 
@@ -3217,7 +3217,7 @@ if (message.content.startsWith('+صراحه')) {
 }
 });  
 
-const developers = ["342678923177492481","410421617869455370",""]
+const developers = ["342678923177492481","410421617869455370","396958215377780747"]
 const adminprefix = "=";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
