@@ -50,17 +50,12 @@ client.on('message', message => {
 
 client.on('message',async message => {
 let mention = message.mentions.members.first();
-let mySupport = message.guild.roles.find('name',role);
 let acRoom = client.channels.get('471067470212497409');
 if(message.content.startsWith(prefix + "قبول")) {
 if (!developers.includes(message.author.id)) return;  
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply('منشن شخص');
-  if(mention.roles.has(mySupport)) return message.reply('هذا الشخص معه الرتبة مسبقا');
-
-  mention.addRole(mySupport).then(() => {
-    acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم بنجاح قبولك**`);
-  });
+    acRoom.send(`**${mention} تم بنجاح قبولك**`);
 }
 });
 
@@ -80,7 +75,7 @@ acRoom.send(`**${mention} تم رفضك للاسف**`)
 
 });
 
-
+const developers = ["342678923177492481","410421617869455370","396958215377780747"]
 
 
 client.on('message', async message => {
