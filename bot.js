@@ -75,7 +75,7 @@ acRoom.send(`**${mention} تم رفضك للاسف**`)
 
 });
 
-const developers = ["342678923177492481","410421617869455370","396958215377780747"]
+
 
 
 client.on('message', async message => {
